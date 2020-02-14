@@ -1,6 +1,8 @@
 from twitter import Twitter
 import time
 
+#test pancing ke heroku supaya keluar dyno
+
 sw = ['dor!','Dor!','DOR!','[BF]','[bf]','[Bf]','PING!','Ping!','ping!','[CERITA]','[Cerita]','[cerita]','#']
 tw = Twitter()
 
