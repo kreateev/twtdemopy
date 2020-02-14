@@ -9,7 +9,7 @@ import os
 class Twitter:
     def __init__(self):
         print("initializing twitter....")
-        self.inits = tweepy.OAuthHandler(constants.CONSUMER_KEY, constants.CONSUMER_SCRET)
+        self.inits = tweepy.OAuthHandler(constants.CONSUMER_KEY, constants.CONSUMER_SECRET)
         self.inits.set_access_token(constants.ACCESS_KEY, constants.ACCESS_SECRET)
         self.api = tweepy.API(self.inits)
 
@@ -75,7 +75,7 @@ class Twitter:
             print("Downloading media...")
             arr = str(media_url).split('/')
             auth = OAuth1(client_key= constants.CONSUMER_KEY,
-                          client_secret= constants.CONSUMER_SCRET,
+                          client_secret= constants.CONSUMER_SECRET,
                           resource_owner_secret= constants.ACCESS_SECRET,
                           resource_owner_key= constants.ACCESS_KEY)
             r = requests.get(media_url, auth = auth)

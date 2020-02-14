@@ -3,22 +3,24 @@ import time
 
 #test pancing ke heroku supaya keluar dyno
 #test kedua pancing worker supaya muncul...
-
+sw = ['dor!','Dor!','DOR!','[BF]','[bf]','[Bf]','PING!','Ping!','ping!','[CERITA]','[Cerita]','[cerita]','#']
 tw = Twitter()
 
 def start():
     print("Starting program...")
     dms = list()
     while True:
-        if len(dms) is not 0:
+        if len(dms) != 0:
             for i in range(len(dms)):
                 message = dms[i]['message']
                 sender_id = dms[i]['sender_id']
                 id = dms[i]['id']
 
-                if len(message) is not 0 and len(message) < 280:
+                if len(message) != 0 and len(message) < 280:
                     if "ZM" in message:
-                        if len(message) is not 0:
+                        for wrd in sw:
+                            message = message.replace(wrd, "")
+                        if len(message) != 0:
                             if dms[i]['media'] is None:
                                 print("DM will be posted")
                                 tw.post_tweet(message)
@@ -34,14 +36,15 @@ def start():
                     else:
                         print("DM will be deleted because does not contains keyword..")
                         tw.delete_dm(id)
+                    time.sleep(10)
 
             dms = list()
 
         else:
             print("Direct message is empty...")
             dms = tw.read_dm()
-            if len(dms) is 0:
-                time.sleep(60)
+            if len(dms) == 0:
+                time.sleep(360)
 
 if __name__ == "__main__":
     start()
