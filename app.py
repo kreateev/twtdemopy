@@ -2,6 +2,7 @@ from twitter import Twitter
 import time
 
 #test pancing ke heroku supaya keluar dyno
+#test kedua pancing worker supaya muncul...
 
 sw = ['dor!','Dor!','DOR!','[BF]','[bf]','[Bf]','PING!','Ping!','ping!','[CERITA]','[Cerita]','[cerita]','#']
 tw = Twitter()
@@ -36,7 +37,6 @@ def start():
                     else:
                         print("DM will be deleted because does not contains keyword..")
                         tw.delete_dm(id)
-                    time.sleep(10)
 
             dms = list()
 
@@ -44,7 +44,7 @@ def start():
             print("Direct message is empty...")
             dms = tw.read_dm()
             if len(dms) == 0:
-                time.sleep(360)
+                time.sleep(60)
 
 if __name__ == "__main__":
     start()
