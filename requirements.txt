@@ -6,7 +6,7 @@ clarifai==2.6.2
 colorama==0.4.3
 configparser==4.0.2
 crayons==0.3.0
-cryptography==2.8
+cryptography==3.2
 EasyProcess==0.2.10
 emoji==0.5.4
 future==0.18.2
